@@ -8,7 +8,7 @@ package com.cea.domain.entities;
 import com.cea.domain.valueobjects.Telefono;
 import java.util.Objects;
 import java.util.UUID;
-
+import com.cea.domain.exceptions.DomainException;
 public class Estudiante {
 
     private final UUID id;
@@ -24,13 +24,13 @@ public class Estudiante {
     public static Estudiante crear(String nombre, Telefono telefono) {
 
         if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException(
+           throw new DomainException(
                 "El nombre del estudiante no puede estar vacío."
             );
         }
 
         if (telefono == null) {
-            throw new IllegalArgumentException(
+            throw new DomainException(
                 "El teléfono del estudiante es obligatorio."
             );
         }
@@ -53,7 +53,7 @@ public class Estudiante {
     public void actualizarNombre(String nombre) {
 
         if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException(
+            throw new DomainException(
                 "El nombre del estudiante no puede estar vacío."
             );
         }
@@ -64,7 +64,7 @@ public class Estudiante {
     public void actualizarTelefono(Telefono telefono) {
 
         if (telefono == null) {
-            throw new IllegalArgumentException(
+            throw new DomainException(
                 "El teléfono del estudiante es obligatorio."
             );
         }
