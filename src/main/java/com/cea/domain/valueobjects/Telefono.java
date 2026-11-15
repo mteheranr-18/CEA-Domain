@@ -6,7 +6,7 @@
 package com.cea.domain.valueobjects;
 
 import java.util.Objects;
-
+import com.cea.domain.exceptions.DomainException;
 public final class Telefono {
 
     private final String numero;
@@ -18,7 +18,7 @@ public final class Telefono {
     public static Telefono crear(String numero) {
 
         if (numero == null || numero.isBlank()) {
-            throw new IllegalArgumentException(
+            throw new DomainException(
                 "El número telefónico no puede estar vacío."
             );
         }
@@ -26,7 +26,7 @@ public final class Telefono {
         String numeroNormalizado = numero.replaceAll("[\\s()-]", "");
 
         if (!numeroNormalizado.matches("^(\\+57)?\\d{10}$")) {
-            throw new IllegalArgumentException(
+            throw new DomainException(
                 "El número telefónico debe tener 10 dígitos "
                 + "y puede incluir el prefijo +57."
             );
