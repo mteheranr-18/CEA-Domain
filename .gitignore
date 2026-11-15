@@ -1,0 +1,17 @@
+
+# Archivos generados por Maven
+target/
+
+# Archivos de compilación Java
+*.class
+
+# Configuración de NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
